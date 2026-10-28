@@ -1,0 +1,98 @@
+"""Заготовки задач на базовый Python."""
+
+from grader_contracts.python_basics import PositiveIntegerInput, TextInput, VectorPairInput
+
+
+def count_vowels(data: TextInput) -> int:
+    text = data.value
+    vowels = set("aeiouAEIOU")
+    return sum(1 for char in text if char in vowels)
+
+
+def has_unique_characters(data: TextInput) -> bool:
+    text = data.value
+    return len(text) == len(set(text))
+
+
+def count_one_bits(data: PositiveIntegerInput) -> int:
+    number = data.value
+    return bin(number).count("1")
+
+
+def multiplicative_persistence(data: PositiveIntegerInput) -> int:
+    number = data.value
+    count = 0
+    while number >= 10:
+        product = 1
+        for digit in str(number):
+            product *= int(digit)
+        number = product
+        count += 1
+    return count
+
+
+def mse(data: VectorPairInput) -> float:
+    predicted, expected = data.predicted, data.expected
+    n = len(predicted)
+    if n == 0:
+        return 0.0
+    return sum((p - e) ** 2 for p, e in zip(predicted, expected)) / n
+
+
+def prime_factorization(data: PositiveIntegerInput) -> str:
+    number = data.value
+    if number == 1:
+        return ""
+    factors = []
+    # Factor out 2s
+    count = 0
+    while number % 2 == 0:
+        number //= 2
+        count += 1
+    if count > 0:
+        if count == 1:
+            factors.append("(2)")
+        else:
+            factors.append(f"(2**{count})")
+    # Factor out odd primes
+    i = 3
+    while i * i <= number:
+        count = 0
+        while number % i == 0:
+            number //= i
+            count += 1
+        if count > 0:
+            if count == 1:
+                factors.append(f"({i})")
+            else:
+                factors.append(f"({i}**{count})")
+        i += 2
+    if number > 1:
+        factors.append(f"({number})")
+    return "".join(factors)
+
+
+def pyramid(data: PositiveIntegerInput) -> int | str:
+    cube_count = data.value
+    total = 0
+    k = 0
+    while total < cube_count:
+        k += 1
+        total += k * k
+    if total == cube_count:
+        return k
+    return "It is impossible"
+
+
+def is_balanced_number(data: PositiveIntegerInput) -> bool:
+    number = data.value
+    s = str(number)
+    n = len(s)
+    mid = n // 2
+    if n % 2 == 1:
+        left_sum = sum(int(d) for d in s[:mid])
+        right_sum = sum(int(d) for d in s[mid + 1 :])
+    else:
+        left_sum = sum(int(d) for d in s[: mid - 1]) if mid >= 1 else 0
+        right_sum = sum(int(d) for d in s[mid + 1 :])
+    return left_sum == right_sum
