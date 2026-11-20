@@ -1,0 +1,76 @@
+{
+  "selected": {
+    "model": "Voting(RF+ET+GB)",
+    "roc_auc": 0.8137,
+    "accuracy": 0.78,
+    "precision": 0.8214,
+    "recall": 0.8762,
+    "f1": 0.8479
+  },
+  "all_experiments": [
+    {
+      "model": "RF_basic",
+      "roc_auc": 0.8059,
+      "accuracy": 0.7733,
+      "precision": 0.7752,
+      "recall": 0.9524,
+      "f1": 0.8547
+    },
+    {
+      "model": "RF_balanced",
+      "roc_auc": 0.8065,
+      "accuracy": 0.78,
+      "precision": 0.8303,
+      "recall": 0.8619,
+      "f1": 0.8458
+    },
+    {
+      "model": "ExtraTrees",
+      "roc_auc": 0.8023,
+      "accuracy": 0.76,
+      "precision": 0.845,
+      "recall": 0.8048,
+      "f1": 0.8244
+    },
+    {
+      "model": "GradientBoosting",
+      "roc_auc": 0.7997,
+      "accuracy": 0.7733,
+      "precision": 0.7983,
+      "recall": 0.9048,
+      "f1": 0.8482
+    },
+    {
+      "model": "HistGradientBoosting",
+      "roc_auc": 0.7543,
+      "accuracy": 0.77,
+      "precision": 0.8026,
+      "recall": 0.8905,
+      "f1": 0.8442
+    },
+    {
+      "model": "AdaBoost",
+      "roc_auc": 0.7943,
+      "accuracy": 0.7667,
+      "precision": 0.7778,
+      "recall": 0.9333,
+      "f1": 0.8485
+    },
+    {
+      "model": "MLPClassifier",
+      "roc_auc": 0.7973,
+      "accuracy": 0.7367,
+      "precision": 0.7331,
+      "recall": 0.981,
+      "f1": 0.8391
+    },
+    {
+      "model": "Voting(RF+ET+GB)",
+      "roc_auc": 0.8137,
+      "accuracy": 0.78,
+      "precision": 0.8214,
+      "recall": 0.8762,
+      "f1": 0.8479
+    }
+  ]
+}
